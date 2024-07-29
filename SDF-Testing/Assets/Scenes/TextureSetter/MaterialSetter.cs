@@ -11,7 +11,14 @@ public class MaterialSetter : MonoBehaviour
 
     void Start()
     {
+        // Get Object Name from Parent
         objName = transform.parent.name;
+
+        // Add Master Texture to Rendered Image
+        //        var texture = Resources.Load<Texture2D>("Textures/texture01");
+        Material mmat = Resources.Load<Material>("Holograms/"+objName+"/MasterTexture/master");
+        transform.parent.Find("RenderedImage").GetComponent<Renderer>().material = mmat;
+        Debug.Log("set");
         //Fetch the Renderer from the GameObject
         m_Renderer = GetComponent<MeshRenderer>();
 
